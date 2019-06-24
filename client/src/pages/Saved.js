@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import "../styles/Saved.css";
+import { BookList, BookListItem } from "../components/BookList/index.js";
 
 class Saved extends Component {
   state = {
@@ -12,7 +13,18 @@ class Saved extends Component {
     this.loadBooks();
   }
 
-  loadBooks() {
+  deleteBook = id => {
+    console.log(id);
+    API.deleteBook(id)
+      .then(() => {
+        this.loadBooks();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  loadBooks = () => {
     API.getBooks()
       .then(books => {
         console.table(books.data);
@@ -26,31 +38,32 @@ class Saved extends Component {
           }
         });
       });
-  }
+  };
 
   displayBooks = () => {
     if (this.state.books.error) return this.state.books.error;
     if (!this.state.books.length) return "You don't have any books saved.";
 
-    return this.state.books.map(book => {
-      return (
-        <div key={book._id}>
-          <a href={book.link}>
-            <strong>{book.title}</strong>
-          </a>
-          by {[book.authors]}
-        </div>
-      );
-    });
+    return (
+      <BookList deleteBook={this.deleteBook}>
+        {this.state.books.map(book => {
+          return (
+            <BookListItem
+              listType="saved"
+              key={book._id}
+              onClick={this.deleteBook}
+              {...book}
+            />
+          );
+        })}
+      </BookList>
+    );
   };
 
   render() {
     return (
       <div>
-        Saved Books
-        <div>
-          {this.state.books ? this.displayBooks() : "Loading Saved Books..."}
-        </div>
+        {this.state.books ? this.displayBooks() : "Loading Saved Books..."}
       </div>
     );
   }

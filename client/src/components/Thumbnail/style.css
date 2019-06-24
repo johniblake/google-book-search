@@ -1,0 +1,17 @@
+div.thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 5vw;
+  padding-top: 100%;
+}
+
+.container {
+  width: 10vw;
+}
+
+h3 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}

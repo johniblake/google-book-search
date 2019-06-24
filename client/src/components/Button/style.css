@@ -1,0 +1,35 @@
+.search {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: dodgerblue;
+  color: white;
+  font-size: 1.1rem;
+  margin: 10px;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+}
+
+.save {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: green;
+  color: white;
+  font-size: 1.1rem;
+  margin: 10px;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.delete {
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: red;
+  color: white;
+  font-size: 1.1rem;
+  margin: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}

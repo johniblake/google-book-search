@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Nav.css";
+import "./style.css";
 
 function Nav({ goto }) {
   return (

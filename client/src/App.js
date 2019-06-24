@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import "./App.css";
 
 function App() {
