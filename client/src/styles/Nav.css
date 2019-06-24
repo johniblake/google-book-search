@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  background-color: dodgerblue;
+  color: white;
+}
+
+.nav div {
+  margin: 10px;
+  cursor: pointer;
+}
