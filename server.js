@@ -1,10 +1,11 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-
-const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
+require("dotenv").config();
+
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_DEV_URI, {
   useNewUrlParser: true
 });
 

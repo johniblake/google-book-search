@@ -6,7 +6,7 @@ import "./style.css";
 
 export default class SearchBar extends Component {
   state = {
-    recipeSearch: ""
+    query: ""
   };
 
   handleInputChange = event => {
@@ -17,13 +17,13 @@ export default class SearchBar extends Component {
 
     const { value } = event.target;
     this.setState({
-      recipeSearch: value
+      query: value
     });
   };
 
   handleSearch = () => {
-    this.props.search(this.state.recipeSearch);
-    this.setState({ recipeSearch: "" });
+    this.props.search(this.state.query);
+    this.setState({ query: "" });
   };
 
   render() {
@@ -31,7 +31,7 @@ export default class SearchBar extends Component {
       <div className="search-bar-container">
         <Input
           onChange={this.handleInputChange}
-          value={this.state.recipeSearch}
+          value={this.state.query}
           placeholder="Search For a Book"
         />
         <Button className="search" onClick={this.handleSearch}>
